@@ -14,7 +14,7 @@ pip install -r requirements.txt
 
 Нужно написать в консоли для получения всех изображений эту команду:
 ```
-python main.py
+python upload_telegram.py
 ```
 Для получения EPIC фоток, нужно написать это:
 ```
