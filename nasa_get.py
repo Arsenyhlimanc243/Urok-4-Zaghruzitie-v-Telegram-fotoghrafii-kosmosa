@@ -14,8 +14,9 @@ def extract_format_from_link(link):
 
 
 def nasa_get(images):
+    api_key = os.environ['API_KEY']
     payload = {
-        "api_key": "2ov0b0AG8Q5WzcSz571mYwUK8h3WHg6WsX2J2Q1j",
+        "api_key": api_key,
         "count": images
     }
     response = requests.get("https://api.nasa.gov/planetary/apod", params=payload)
