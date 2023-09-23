@@ -21,20 +21,22 @@ def nasa_get(images):
     }
     response = requests.get("https://api.nasa.gov/planetary/apod", params=payload)
     response.raise_for_status()
-    images_json = response.json()
-    for image_json in images_json:
-        if image_json.get("media_type") == "image":
-            if image_json.get("hdurl"):
-                url_photos = image_json["hdurl"]
+    images = response.json()
+    for image in images:
+        if image.get("media_type") == "image":
+            if image.get("hdurl"):
+                url_photo = image["hdurl"]
             else:
-                url_photos = image_json["url"]
-            format, file_name = extract_format_from_link(url_photos)
-            path = os.path.join("images", f"{file_name}{format}")
-            download_picture(url_photos, path, params=payload)
+                url_photo = image["url"]
+            format, file_name = extract_format_from_link(url_photo)
+            path = os.path.join("image", f"{file_name}{format}")
+            download_picture(url_photo, path, params=payload)
 
 
 def main():
     nasa_get(30)
+
+
 if "__main__" == "__name__":
     main()
 
