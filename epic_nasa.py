@@ -4,7 +4,7 @@ import os
 from datetime import datetime
 
 
-def EPIC_nasa(images):
+def epic_nasa(images):
     params = {
         "api_key":"2ov0b0AG8Q5WzcSz571mYwUK8h3WHg6WsX2J2Q1j",
         "count": images,
@@ -23,6 +23,6 @@ def EPIC_nasa(images):
 
 
 def main():
-    EPIC_nasa(5)
+    epic_nasa(5)
 if "__main__" == "__name__":
     main()
