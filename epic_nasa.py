@@ -12,13 +12,13 @@ def epic_nasa(images):
     }
     response = requests.get("https://api.nasa.gov/EPIC/api/natural/image", params=params)
     response.raise_for_status()
-    url = response.json()
-    for image_urls in url:
-        image_url = image_urls["image"]
-        image_date = image_urls["date"]
+    urls = response.json()
+    for image_url in urls:
+        image = image_url["image"]
+        image_date = image_url["date"]
         image_date = datetime.fromisoformat(image_date).strftime("%Y/%m/%d")
-        new_url = f"https://api.nasa.gov/EPIC/archive/natural/{image_date}/png/{image_url}.png"
-        path = os.path.join("images", f"{image_url}.png")
+        new_url = f"https://api.nasa.gov/EPIC/archive/natural/{image_date}/png/{image}.png"
+        path = os.path.join("image", f"{image}.png")
         download_picture(new_url, path, params)
 
 
