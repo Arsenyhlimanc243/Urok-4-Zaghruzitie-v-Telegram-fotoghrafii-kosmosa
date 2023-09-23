@@ -5,8 +5,9 @@ from datetime import datetime
 
 
 def epic_nasa(images):
+    api_key = os.environ['API_KEY']
     params = {
-        "api_key":"2ov0b0AG8Q5WzcSz571mYwUK8h3WHg6WsX2J2Q1j",
+        "api_key": api_key,
         "count": images,
     }
     response = requests.get("https://api.nasa.gov/EPIC/api/natural/image", params=params)
