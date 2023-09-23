@@ -3,14 +3,17 @@ import argparse
 from download_picture import download_picture
 
 
-def fetch_spacex_last_launch(launch_id=None):
-    if launch_id:
+
+def fetch_spacex_launch_id(launch_id=None):
+     if launch_id:
         url = f"https://api.spacexdata.com/v5/launches/{launch_id}"
     else:
         url = "https://api.spacexdata.com/v5/launches/"
     response = requests.get(url)
     response.raise_for_status()
 
+
+def fetch_spacex_last_launch():
     for response_link in response.json():
         if response_link["links"]["flickr"]["original"]:
             url_photos = response_link["links"]["flickr"]["original"]
