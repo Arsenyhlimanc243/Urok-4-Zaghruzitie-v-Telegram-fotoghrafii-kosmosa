@@ -3,7 +3,6 @@ import argparse
 from download_picture import download_picture
 
 
-
 def fetch_spacex_launch_id(launch_id=None):
      if launch_id:
         url = f"https://api.spacexdata.com/v5/launches/{launch_id}"
