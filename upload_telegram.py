@@ -26,7 +26,6 @@ def extract_format_from_link(link):
 
 
 def main():
-    epic_nasa(5)
     os.makedirs("images", exist_ok=True)
     telegram_token = os.environ['TG_TOKEN']
     time = os.environ["TIME_REPEAT"]
