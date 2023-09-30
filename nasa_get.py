@@ -23,10 +23,9 @@ def nasa_get(images):
     response.raise_for_status()
     images = response.json()
     for image in images:
-        if image.get("media_type") == "image":
-            if image.get("hdurl"):
+        if image.get("media_type") == "image" and image.get("hdurl"):
                 url_photo = image["hdurl"]
-            else:
+        if not image.get("hdurl"):
                 url_photo = image["url"]
             format, file_name = extract_format_from_link(url_photo)
             path = os.path.join("image", f"{file_name}{format}")
