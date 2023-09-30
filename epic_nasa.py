@@ -22,9 +22,5 @@ def epic_nasa(images):
         download_picture(epic_url, path, params)
 
 
-def main():
-    epic_nasa(5)
-
-
 if "__main__" == "__name__":
     main()
