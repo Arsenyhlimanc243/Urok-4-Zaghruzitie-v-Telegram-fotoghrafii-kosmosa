@@ -33,10 +33,6 @@ def nasa_get(images):
             download_picture(url_photo, path, params=payload)
 
 
-def main():
-    nasa_get(30)
-
-
 if "__main__" == "__name__":
     main()
 
