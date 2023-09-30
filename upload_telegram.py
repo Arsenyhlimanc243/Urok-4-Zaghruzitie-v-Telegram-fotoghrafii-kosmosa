@@ -9,22 +9,6 @@ from datetime import datetime
 from urllib.parse import urlparse
 
 
-def download_picture(url, path, params=None):
-    response = requests.get(url, params=params)
-    response.raise_for_status()
-    with open(path, 'wb') as file:
-        file.write(response.content)
-
-
-def extract_format_from_link(link):
-    decoding_link = unquote(link)
-    parse_link = urlparse(decoding_link)
-    path, fullname = os.path.split(parse_link.path)
-    format_path = os.path.splitext(fullname)
-    file_name, format = format_path
-    return format, file_name
-
-
 def main():
     os.makedirs("images", exist_ok=True)
     telegram_token = os.environ['TG_TOKEN']
