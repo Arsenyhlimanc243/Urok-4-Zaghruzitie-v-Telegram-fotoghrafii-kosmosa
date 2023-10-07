@@ -12,16 +12,17 @@ def fetch_spacex_last_launch():
 
 
 def main():
+     launch_id="5eb87d47ffd86e000604b38a"
      parser = argparse.ArgumentParser(description="Этот скрипт загружает фото от SpaceX по указанному ID запуска")
-     parser.add_argument('--id', default=None, help='ID запуска, по которому загружается фото от SpaceX', dest="ID")
+     parser.add_argument('--id', default={launch_id}, help='id запуска, по которому загружается фото от SpaceX', dest="id")
      args = parser.parse_args()
-     if launch_id=None:
+     if launch_id:
           url = f"https://api.spacexdata.com/v5/launches/{launch_id}"
      else:
           url = "https://api.spacexdata.com/v5/launches/"
      response = requests.get(url)
      response.raise_for_status()
-     fetch_spacex_last_launch(args.ID)
+     fetch_spacex_last_launch(args.id)
 
 
 if __name__ == "__main__":
