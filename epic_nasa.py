@@ -1,4 +1,5 @@
 from download_picture import download_picture
+from main import main
 import requests
 import os
 from datetime import datetime
@@ -22,5 +23,5 @@ def epic_nasa(images):
         download_picture(epic_url, path, params)
 
 
-if "__main__" == "__name__":
+if __name__ == "__main__":
     main()
